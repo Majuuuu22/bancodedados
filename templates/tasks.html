@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Minhas Tarefas</h2>
+<form method="POST">
+    <input type="text" name="descricao" placeholder="Descrição da Tarefa" required>
+    <input type="date" name="data_limite" required>
+    <select name="prioridade">
+        <option value="Baixa">Baixa</option>
+        <option value="Média">Média</option>
+        <option value="Alta">Alta</option>
+    </select>
+    <input type="text" name="categoria" placeholder="Categoria" required>
+    <button type="submit">Adicionar Tarefa</button>
+</form>
+
+<h3>Tarefas</h3>
+<ul>
+    {% for tarefa in tarefas %}
+    <li>{{ tarefa.descricao }} - {{ tarefa.status }} - {{ tarefa.prioridade }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
